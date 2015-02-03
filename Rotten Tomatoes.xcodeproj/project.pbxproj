@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		17ED0CFA1A80B73300AB251D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0CF91A80B73300AB251D /* main.m */; };
 		17ED0CFD1A80B73300AB251D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0CFC1A80B73300AB251D /* AppDelegate.m */; };
-		17ED0D001A80B73300AB251D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0CFF1A80B73300AB251D /* ViewController.m */; };
-		17ED0D031A80B73300AB251D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17ED0D011A80B73300AB251D /* Main.storyboard */; };
 		17ED0D051A80B73300AB251D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17ED0D041A80B73300AB251D /* Images.xcassets */; };
 		17ED0D081A80B73300AB251D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ED0D061A80B73300AB251D /* LaunchScreen.xib */; };
 		17ED0D141A80B73300AB251D /* Rotten_TomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0D131A80B73300AB251D /* Rotten_TomatoesTests.m */; };
+		17ED0D201A80B99D00AB251D /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0D1E1A80B99D00AB251D /* MoviesViewController.m */; };
+		17ED0D211A80B99D00AB251D /* MoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ED0D1F1A80B99D00AB251D /* MoviesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		17ED0CF91A80B73300AB251D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17ED0CFB1A80B73300AB251D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17ED0CFC1A80B73300AB251D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		17ED0CFE1A80B73300AB251D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		17ED0CFF1A80B73300AB251D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		17ED0D021A80B73300AB251D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17ED0D041A80B73300AB251D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17ED0D071A80B73300AB251D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		17ED0D0D1A80B73300AB251D /* Rotten TomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rotten TomatoesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ED0D121A80B73300AB251D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17ED0D131A80B73300AB251D /* Rotten_TomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rotten_TomatoesTests.m; sourceTree = "<group>"; };
+		17ED0D1D1A80B99D00AB251D /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		17ED0D1E1A80B99D00AB251D /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		17ED0D1F1A80B99D00AB251D /* MoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +81,9 @@
 		17ED0CF61A80B73300AB251D /* Rotten Tomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				17ED0D221A80B9A900AB251D /* Views */,
 				17ED0CFB1A80B73300AB251D /* AppDelegate.h */,
 				17ED0CFC1A80B73300AB251D /* AppDelegate.m */,
-				17ED0CFE1A80B73300AB251D /* ViewController.h */,
-				17ED0CFF1A80B73300AB251D /* ViewController.m */,
-				17ED0D011A80B73300AB251D /* Main.storyboard */,
 				17ED0D041A80B73300AB251D /* Images.xcassets */,
 				17ED0D061A80B73300AB251D /* LaunchScreen.xib */,
 				17ED0CF71A80B73300AB251D /* Supporting Files */,
@@ -117,6 +115,16 @@
 				17ED0D121A80B73300AB251D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17ED0D221A80B9A900AB251D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17ED0D1D1A80B99D00AB251D /* MoviesViewController.h */,
+				17ED0D1E1A80B99D00AB251D /* MoviesViewController.m */,
+				17ED0D1F1A80B99D00AB251D /* MoviesViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17ED0D031A80B73300AB251D /* Main.storyboard in Resources */,
 				17ED0D081A80B73300AB251D /* LaunchScreen.xib in Resources */,
+				17ED0D211A80B99D00AB251D /* MoviesViewController.xib in Resources */,
 				17ED0D051A80B73300AB251D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17ED0D001A80B73300AB251D /* ViewController.m in Sources */,
+				17ED0D201A80B99D00AB251D /* MoviesViewController.m in Sources */,
 				17ED0CFD1A80B73300AB251D /* AppDelegate.m in Sources */,
 				17ED0CFA1A80B73300AB251D /* main.m in Sources */,
 			);
@@ -244,14 +252,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		17ED0D011A80B73300AB251D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17ED0D021A80B73300AB251D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		17ED0D061A80B73300AB251D /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
