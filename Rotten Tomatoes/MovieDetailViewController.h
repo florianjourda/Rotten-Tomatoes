@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieDetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@interface MovieDetailViewController : UIViewController <UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *detailsScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mpaaRatingLabel;
+@property (weak, nonatomic) IBOutlet UIView *detailsBackgroundView;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *parallaxScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *fullPosterView;
+
+@property (strong, nonatomic) NSDictionary *movie;
+@property (weak, nonatomic) UIImage *lowResImage;
 @end

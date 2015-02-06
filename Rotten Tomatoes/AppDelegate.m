@@ -24,9 +24,30 @@
   MoviesViewController *moviesViewController = [[MoviesViewController alloc] init];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:moviesViewController];
   self.window.rootViewController = navigationController;
+  [self customizeNavigationBar];
+  [navigationController.navigationBar setAlpha:0.0];
   [self.window makeKeyAndVisible];
 
   return YES;
+}
+
+- (void)customizeNavigationBar {
+  [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                       forBarMetrics:UIBarMetricsDefault];
+  [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
+  //[[UINavigationBar appearance] setTranslucent:YES];
+  //[[UINavigationBar appearance] setAlpha:.01];
+  //NSShadow *shadow = [[NSShadow alloc] init];
+  //shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+  //shadow.shadowOffset = CGSizeMake(0, 1);
+  [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+      //[UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+      [UIColor whiteColor], NSForegroundColorAttributeName,
+      //shadow, NSShadowAttributeName,
+      [UIFont fontWithName:@"Apple SD Gothic Neo" size:24.0], NSFontAttributeName,
+      nil]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -40,7 +40,7 @@
   NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
   [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
       NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-      NSLog(@"%@", responseDictionary);
+      //NSLog(@"%@", responseDictionary);
       self.movies = responseDictionary[@"movies"];
       [self.moviesTableView reloadData];
    }];
@@ -64,7 +64,7 @@
   cell.titleLabel.text = movie[@"title"];
   cell.synopsisLabel.text = movie[@"synopsis"];
 
-  NSString *urlString = [movie valueForKeyPath:@"posters.thumbnail"];
+  NSString *urlString = [[movie valueForKeyPath:@"posters.thumbnail"] stringByReplacingOccurrencesOfString: @"_tmb.jpg" withString:@"_pro.jpg"];
   NSURL *url = [NSURL URLWithString:urlString];
   [cell.posterView setImageWithURL:url];
 
@@ -75,6 +75,8 @@
   [tableView deselectRowAtIndexPath:indexPath animated:true];
 
   MovieDetailViewController *viewController = [[MovieDetailViewController alloc] init];
+  viewController.movie = self.movies[indexPath.row];
+  viewController.lowResImage = ((MovieCell *)[tableView cellForRowAtIndexPath:indexPath]).posterView.image;
   [self.navigationController pushViewController:viewController animated:true];
 }
 
