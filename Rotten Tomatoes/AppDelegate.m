@@ -24,9 +24,11 @@
   MoviesViewController *moviesViewController = [[MoviesViewController alloc] init];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:moviesViewController];
   self.window.rootViewController = navigationController;
-  [self customizeNavigationBar];
+  //[self customizeNavigationBar];
+
   [navigationController.navigationBar setAlpha:0.0];
   [self.window makeKeyAndVisible];
+  [navigationController setNavigationBarHidden:YES];
 
   return YES;
 }

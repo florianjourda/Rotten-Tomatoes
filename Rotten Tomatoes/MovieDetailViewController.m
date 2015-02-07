@@ -15,45 +15,54 @@
 
 @implementation MovieDetailViewController
 
+
 - (void)viewDidLoad {
   [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-  NSString *urlString = [[self.movie valueForKeyPath:@"posters.thumbnail"] stringByReplacingOccurrencesOfString: @"_tmb.jpg" withString:@"_ori.jpg"];
-  NSURL *url = [NSURL URLWithString:urlString];
+  [self setupPoster];
+  [self setupDetails];
+  [self setupSwipe];
+  [self setupTap];
+  [self scrollViewDidScroll:self.detailsScrollView];
+}
 
-  [self.fullPosterView setImageWithURLRequest:[NSURLRequest requestWithURL:url] placeholderImage:self.lowResImage
-      success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-          [UIView transitionWithView:self.fullPosterView
-                duration:0.3
-                options:UIViewAnimationOptionTransitionCrossDissolve
-                animations:^{
-                    self.fullPosterView.image = image;
-                }
-                completion:NULL
-           ];
-      }
-      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-      }
-   ];
-
-  [self.parallaxScrollView setScrollEnabled:TRUE];
-
- // [self.parallaxScrollView setContentSize:CGSizeMake(self.parallaxScrollView.frame.size.width, self.fullPosterView.frame.size.height)];
-   [self.parallaxScrollView setContentSize:CGSizeMake(self.parallaxScrollView.frame.size.width, 10)];
-
+- (void)setupDetails {
   self.title = self.movie[@"title"];
   self.detailsLabel.text = [NSString stringWithFormat:@"%@ (%@)", self.movie[@"title"], self.movie[@"year"]];
   self.mpaaRatingLabel.text = self.movie[@"mpaa_rating"];
   self.synopsisLabel.text = [NSString stringWithFormat:@"Critic score: %@%%\nAudience score: %@%%\n\n%@", self.movie[@"ratings"][@"critics_score"], self.movie[@"ratings"][@"audience_score"], self.movie[@"synopsis"]];
   [self.synopsisLabel sizeToFit];
   [self.detailsScrollView setContentSize:CGSizeMake(self.detailsScrollView.frame.size.width, self.synopsisLabel.frame.size.height + 360)];
-
+  
   CGRect newFrame = self.detailsBackgroundView.frame;
   newFrame.size = CGSizeMake(self.detailsScrollView.frame.size.width, self.synopsisLabel.frame.size.height + 500);
   self.detailsBackgroundView.frame = newFrame;
-  //[self.detailsScrollView setContentOffset:CGPointMake(0, -300) animated:YES];
 
   self.detailsScrollView.delegate = self;
+  self.detailsScrollView.alwaysBounceVertical = YES;
+}
+
+- (void)setupPoster {
+  // Do any additional setup after loading the view from its nib.
+  NSString *urlString = [[self.movie valueForKeyPath:@"posters.thumbnail"] stringByReplacingOccurrencesOfString: @"_tmb.jpg" withString:@"_ori.jpg"];
+  NSURL *url = [NSURL URLWithString:urlString];
+  [self.fullPosterView setImageWithURLRequest:[NSURLRequest requestWithURL:url] placeholderImage:self.lowResImage
+      success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+        [UIView transitionWithView:self.fullPosterView
+            duration:0.3
+            options:UIViewAnimationOptionTransitionCrossDissolve
+            animations:^{
+                self.fullPosterView.image = image;
+            }
+            completion:NULL
+        ];
+      }
+      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+      }
+   ];
+  //self.fullPosterView.image = self.lowResImage;
+  // self.fullPosterView.frame = CGRectMake(0, 0, self.fullPosterView.frame.size.width, self.fullPosterView.frame.size.height);
+  [self.parallaxScrollView setContentSize:self.fullPosterView.frame.size];
+  [self.parallaxScrollView setScrollEnabled:FALSE];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,21 +73,48 @@
 #pragma mark - Parallax
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  NSLog(@"SCROLL");
-  CGFloat detailMaxOffset = self.detailsScrollView.contentSize.width - CGRectGetWidth(self.parallaxScrollView.frame);
+  CGFloat detailsScrollMaxOffset = self.detailsScrollView.contentSize.height - CGRectGetHeight(self.detailsScrollView.frame);
+  CGFloat parallaxScrollMaxOffset = self.parallaxScrollView.contentSize.height - CGRectGetHeight(self.parallaxScrollView.frame);
 
-  CGFloat maxOffset = 100;
-  CGFloat parallaxOffset = 0;
+  CGFloat percentage = self.detailsScrollView.contentOffset.y /detailsScrollMaxOffset;
+  percentage = MIN(percentage, 1.0);
+  percentage = MAX(percentage, 0.0);
 
-  CGFloat percentage = self.detailsScrollView.contentOffset.x / maxOffset;
-
-  CGFloat parallaxMaxOffset = self.parallaxScrollView.contentSize.width - CGRectGetWidth(self.parallaxScrollView.frame);
-
-  //[self.parallaxScrollView setContentOffset:CGPointMake(percentage * parallaxOffset, 0)];
-
-  //[self.parallaxScrollView setContentOffset:self.detailsScrollView.contentOffset];
+  NSLog(@"SCROLL %f", percentage);
+  [self.parallaxScrollView setContentOffset:CGPointMake(0, percentage * parallaxScrollMaxOffset)];
 }
 
+# pragma mark - Tap to hide details
+
+- (void)setupTap {
+  UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapGesture:)];
+  [self.view addGestureRecognizer:singleTapGestureRecognizer];
+}
+
+-(void)handleSingleTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer{
+  NSLog(@"TAP");
+
+  [UIView animateWithDuration:0.4 animations:^{
+    CGRect newFrame = self.detailsScrollView.frame;
+    newFrame.origin = CGPointMake(newFrame.origin.x, newFrame.size.height - newFrame.origin.y);
+    self.detailsScrollView.frame = newFrame;
+  } completion:^(BOOL finished) {
+    // Do something here when the animation finishes.
+  }];
+}
+
+#pragma mark - Swipe to go back to home
+
+- (void)setupSwipe {
+  UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(slideToRightWithGestureRecognizer)];
+  swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+  [self.view addGestureRecognizer:swipeGestureRecognizer];
+}
+
+- (void)slideToRightWithGestureRecognizer {
+  NSLog(@"SWIPE");
+  [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 #pragma mark - Navigation

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mpaaRatingLabel;
 @property (weak, nonatomic) IBOutlet UIView *detailsBackgroundView;
 
+
 @property (weak, nonatomic) IBOutlet UIScrollView *parallaxScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *fullPosterView;
 
