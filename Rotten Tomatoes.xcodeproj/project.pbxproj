@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		145D84912A4401A71FF27B5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD187EBBB60ED09BE1B4B736 /* libPods.a */; };
-		177AE3471A81C2450065F0EF /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177AE3451A81C2450065F0EF /* MovieCell.m */; };
-		177AE3481A81C2450065F0EF /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177AE3461A81C2450065F0EF /* MovieCell.xib */; };
+		177AE3471A81C2450065F0EF /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177AE3451A81C2450065F0EF /* MovieTableViewCell.m */; };
+		177AE3481A81C2450065F0EF /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177AE3461A81C2450065F0EF /* MovieTableViewCell.xib */; };
 		17A9A6561A86DDCD00E228FE /* ErrorBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A9A6541A86DDCD00E228FE /* ErrorBannerViewController.m */; };
 		17A9A6571A86DDCD00E228FE /* ErrorBannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A9A6551A86DDCD00E228FE /* ErrorBannerViewController.xib */; };
 		17A9A65A1A86F1E400E228FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A9A6591A86F1E400E228FE /* Images.xcassets */; };
+		17A9A6601A8814F700E228FE /* ImageLoaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A9A65F1A8814F700E228FE /* ImageLoaderHelper.m */; };
+		17B7EE481A885CF100FDAD7B /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B7EE461A885CF100FDAD7B /* MovieCollectionViewCell.m */; };
+		17B7EE491A885CF100FDAD7B /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B7EE471A885CF100FDAD7B /* MovieCollectionViewCell.xib */; };
 		17ECD6731A81D8AA00FD370D /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ECD6711A81D8AA00FD370D /* MovieDetailViewController.m */; };
 		17ECD6741A81D8AA00FD370D /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ECD6721A81D8AA00FD370D /* MovieDetailViewController.xib */; };
 		17ED0CFA1A80B73300AB251D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ED0CF91A80B73300AB251D /* main.m */; };
@@ -34,13 +37,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		177AE3441A81C2450065F0EF /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
-		177AE3451A81C2450065F0EF /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
-		177AE3461A81C2450065F0EF /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		177AE3441A81C2450065F0EF /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
+		177AE3451A81C2450065F0EF /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewCell.m; sourceTree = "<group>"; };
+		177AE3461A81C2450065F0EF /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		17A9A6531A86DDCD00E228FE /* ErrorBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBannerViewController.h; sourceTree = "<group>"; };
 		17A9A6541A86DDCD00E228FE /* ErrorBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorBannerViewController.m; sourceTree = "<group>"; };
 		17A9A6551A86DDCD00E228FE /* ErrorBannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorBannerViewController.xib; sourceTree = "<group>"; };
 		17A9A6591A86F1E400E228FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		17A9A65E1A8814F700E228FE /* ImageLoaderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderHelper.h; sourceTree = "<group>"; };
+		17A9A65F1A8814F700E228FE /* ImageLoaderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoaderHelper.m; sourceTree = "<group>"; };
+		17B7EE451A885CF100FDAD7B /* MovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionViewCell.h; sourceTree = "<group>"; };
+		17B7EE461A885CF100FDAD7B /* MovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionViewCell.m; sourceTree = "<group>"; };
+		17B7EE471A885CF100FDAD7B /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		17ECD6701A81D8AA00FD370D /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		17ECD6711A81D8AA00FD370D /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		17ECD6721A81D8AA00FD370D /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
@@ -83,9 +91,12 @@
 		177AE3431A81C2070065F0EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				177AE3441A81C2450065F0EF /* MovieCell.h */,
-				177AE3451A81C2450065F0EF /* MovieCell.m */,
-				177AE3461A81C2450065F0EF /* MovieCell.xib */,
+				177AE3441A81C2450065F0EF /* MovieTableViewCell.h */,
+				177AE3451A81C2450065F0EF /* MovieTableViewCell.m */,
+				177AE3461A81C2450065F0EF /* MovieTableViewCell.xib */,
+				17B7EE451A885CF100FDAD7B /* MovieCollectionViewCell.h */,
+				17B7EE461A885CF100FDAD7B /* MovieCollectionViewCell.m */,
+				17B7EE471A885CF100FDAD7B /* MovieCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -96,6 +107,8 @@
 				17A9A6531A86DDCD00E228FE /* ErrorBannerViewController.h */,
 				17A9A6541A86DDCD00E228FE /* ErrorBannerViewController.m */,
 				17A9A6551A86DDCD00E228FE /* ErrorBannerViewController.xib */,
+				17A9A65E1A8814F700E228FE /* ImageLoaderHelper.h */,
+				17A9A65F1A8814F700E228FE /* ImageLoaderHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -276,8 +289,9 @@
 				17ECD6741A81D8AA00FD370D /* MovieDetailViewController.xib in Resources */,
 				17ED0D081A80B73300AB251D /* LaunchScreen.xib in Resources */,
 				17ED0D211A80B99D00AB251D /* MoviesViewController.xib in Resources */,
+				17B7EE491A885CF100FDAD7B /* MovieCollectionViewCell.xib in Resources */,
 				17A9A65A1A86F1E400E228FE /* Images.xcassets in Resources */,
-				177AE3481A81C2450065F0EF /* MovieCell.xib in Resources */,
+				177AE3481A81C2450065F0EF /* MovieTableViewCell.xib in Resources */,
 				17A9A6571A86DDCD00E228FE /* ErrorBannerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,11 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17ED0D201A80B99D00AB251D /* MoviesViewController.m in Sources */,
+				17A9A6601A8814F700E228FE /* ImageLoaderHelper.m in Sources */,
 				17ED0CFD1A80B73300AB251D /* AppDelegate.m in Sources */,
 				17ECD6731A81D8AA00FD370D /* MovieDetailViewController.m in Sources */,
 				17A9A6561A86DDCD00E228FE /* ErrorBannerViewController.m in Sources */,
-				177AE3471A81C2450065F0EF /* MovieCell.m in Sources */,
+				177AE3471A81C2450065F0EF /* MovieTableViewCell.m in Sources */,
 				17ED0CFA1A80B73300AB251D /* main.m in Sources */,
+				17B7EE481A885CF100FDAD7B /* MovieCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

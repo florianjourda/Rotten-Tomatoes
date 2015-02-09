@@ -24,7 +24,6 @@
                 <view contentMode="scaleToFill" id="YNB-98-egy" userLabel="ViewToFixJumpingBug">
                     <rect key="frame" x="0.0" y="0.0" width="35" height="284"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.19770641761710839" blue="0.26323423170778837" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fAx-WP-5vW">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -74,10 +73,6 @@
         </view>
         <tapGestureRecognizer id="3Us-vS-biM"/>
         <swipeGestureRecognizer direction="right" id="Tc3-Je-UaZ"/>
-        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="i9x-wn-haP">
-            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </activityIndicatorView>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

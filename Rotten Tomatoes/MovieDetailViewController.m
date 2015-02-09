@@ -8,6 +8,7 @@
 
 #import "MovieDetailViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "ImageLoaderHelper.h"
 
 @interface MovieDetailViewController ()
 
@@ -44,23 +45,7 @@
 - (void)setupPoster {
   // Do any additional setup after loading the view from its nib.
   NSString *urlString = [[self.movie valueForKeyPath:@"posters.thumbnail"] stringByReplacingOccurrencesOfString: @"_tmb.jpg" withString:@"_ori.jpg"];
-  NSURL *url = [NSURL URLWithString:urlString];
-  [self.fullPosterView setImageWithURLRequest:[NSURLRequest requestWithURL:url] placeholderImage:self.lowResImage
-      success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-        [UIView transitionWithView:self.fullPosterView
-            duration:0.3
-            options:UIViewAnimationOptionTransitionCrossDissolve
-            animations:^{
-                self.fullPosterView.image = image;
-            }
-            completion:NULL
-        ];
-      }
-      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-      }
-   ];
-  //self.fullPosterView.image = self.lowResImage;
-  // self.fullPosterView.frame = CGRectMake(0, 0, self.fullPosterView.frame.size.width, self.fullPosterView.frame.size.height);
+  [ImageLoaderHelper setImage:self.fullPosterView withUrlString:urlString withPlaceHolderImage:self.lowResImage];
   [self.parallaxScrollView setContentSize:self.fullPosterView.frame.size];
   [self.parallaxScrollView setScrollEnabled:FALSE];
 }
